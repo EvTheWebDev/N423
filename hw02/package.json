@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "sass": "^1.92.1"
+  },
+  "name": "hw02",
+  "version": "1.0.0",
+  "description": "My second homework assignment for my N423 Class",
+  "main": "app/app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass scss/styles.scss css/styles.css --watch --no-source-map"
+  },
+  "author": "",
+  "license": "ISC"
+}

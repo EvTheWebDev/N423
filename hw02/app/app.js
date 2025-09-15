@@ -5,21 +5,30 @@ function initListeners() {
   });
   $(`#search`).on("click", function () {
     // console.log("Search button clicked");
-    let category = $("#cat").val();
-    if (category != "") {
-        console.log("Selected category:", category);
+    let location = $("#location").val();
+    if (location != "") {
+        console.log("Selected location:", location);
     } else {
-        alert("Please select a category");
+        alert("Please enter a location.");
     }
-    MODEL.getMealsByCategory(category);
+    MODEL.getWeather(location);
+  });
+
+  $(`#forecastSearch`).on("click", function () {
+    // console.log("Forecast button clicked");
+    let location = $("#forecastLocation").val();
+    let days = $("#days").val();
+    if (location != "") {
+        console.log("Selected location:", location);
+        console.log("Generating ", days , " day forecast for ", location , ".");
+    } else {
+        alert("Please enter a location.");
+    }
+    MODEL.getForecast(location, days);
   });
 }
 
-function initCats() {
-  MODEL.getCategories();
-}
 
 $(document).ready(function () {
-  initCats();
   initListeners();
 });

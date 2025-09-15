@@ -4,31 +4,82 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Week02: Using API's</title>
+    <title>Homework 02: Weather App</title>
     <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="icon"
+      id="favicon"
+      href="https://cdn.weatherapi.com/weather/64x64/day/113.png"
+    />
   </head>
   <body>
     <div id="app">
-      <div class="header">
-        <h1>My Meal Plans</h1>
-        <div class="buttonBar">
-          <button id="random-meal-btn">Get Random Meal</button>
-          <div class="filter">
-            <label for="cats">Choose a Category:</label>
-            <select name="Category" id="cat"></select>
-            <input type="submit" id="search">
+      <div class="nav">
+        <div class="titleBar">
+          <h1>Ev's Wh-EV-er App ☀️ ☁️</h1>
+        </div>
+        <ul class="linkList">
+          <li><a href="">Home</a></li>
+          <li><a target="_blank" href="https://evtheweb.dev">The Dev</a></li>
+          <li><a href="">Create An Account</a></li>
+          <li><a href="">Sign In</a></li>
+        </ul>
+        <div class="weatherOptions">
+          <div class="buttonBar">
+            <h2>Check Current Weather:</h2>
+            <label for="location">City / ZIP Code / State</label>
+            <div class="select">
+              <input
+                name="location"
+                id="location"
+                placeholder="Weather City, IN"
+              />
+              <input
+                type="submit"
+                class="searchButton"
+                value="Go!"
+                id="search"
+              />
+            </div>
+          </div>
+          <div class="buttonBar forecast">
+            <h2>Get a Forecast:</h2>
+            <label for="days">How Many Days?</label>
+            <select class="daySelector" name="days" id="days">
+              <option value="1">1 Day</option>
+              <option value="3">3 Days</option>
+              <option value="5">5 Days</option>
+              <option value="6">6 Days</option>
+              <option value="7" selected>7 Days / 1-week</option>
+              <option value="14">14 Days / 2-week</option>
+              </select>
+            <label for="location"> City / ZIP Code / State</label>
+            <div class="select">
+              <input
+                name="location"
+                id="forecastLocation"
+                placeholder="Weather City, IN"
+              />
+              <input
+                type="submit"
+                class="searchButton"
+                value="Go!"
+                id="forecastSearch"
+              />
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="recipeView">
-        <div class="sideBar">
-          <p id="reactionText">What're you cookin?</p>
-          <img id="reactionImg" src="assets/img/jeremy.webp" alt="Jeremy" />
-        </div>
-        <div class="recipeHolder"></div>
+      <div class="weatherView">
+        <div class="weatherHolder"></div>
+      </div>
+      <div class="footer">
+        <p>Ev's Wh-EV-er App</p>
+        <a href="mailto:ev@evtheweb.dev">ev@iLoveCurling.com</a>
       </div>
     </div>
+
     <script src="lib/jquery-3.7.1.min.js"></script>
     <script type="module" src="model/model.js"></script>
     <script type="module" src="app/app.js"></script>

@@ -1,0 +1,37 @@
+
+.weatherView {
+    width: 90%;
+    margin: 0 auto;
+    flex-grow: 1;
+    // background-color: rgb(228, 222, 222);
+}
+
+.weatherHolder {
+    padding: 20px;
+    .latLon {
+        font-size: 10px;
+        color: rgb(219, 219, 219);
+        margin-bottom: 0px;
+    }
+
+.icon {
+    width: 100px;
+}
+
+    // Temp Styling
+    .feelsLike {
+        font-size: large;
+        font-family: monospace;
+    }
+    .celsius {
+        font-size: small;
+    }
+}
+
+.forecast {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}

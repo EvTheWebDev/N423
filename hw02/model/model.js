@@ -1,66 +1,82 @@
-export function getRandomMeal() {
-  let randomMealUrl = `https://www.themealdb.com/api/json/v1/1/random.php`;
-  console.log("Fetching a random meal from TheMealDB");
+export function getWeather(location) {
+  let weatherURL = `https://api.weatherapi.com/v1/current.json?key=3f492440322745beb71150446251509&q=${location}&aqi=no
+`;
+  console.log("Grabbing Weather Data");
 
-  // because meals are an array, you need to get the first item in the array to access data.
+  // because it is an array, you need to get the first item in the array to access data.
 
-  // Editing Reaction Img / Text w variables
-  let reactionImg = document.getElementById("reactionImg");
-  let reactionText = document.getElementById("reactionText");
-  $.getJSON(randomMealUrl, (data) => {
+  $.getJSON(weatherURL, (data) => {
     console.log(data);
-    let meal = data.meals[0];
-    let recipeString = `
-    <h1 class="recipeName" >${meal.strMeal}</h1>
-    <img class="recipeImg" src="${meal.strMealThumb}" alt="Image of ${meal.strMeal}">
-    <h3> Ingredients: </h3>
-    <ul class="ingredientsList">`;
-    // Each meal has 20 ingredient slots, so we loop through them this way
-    // We can't use a for each loop because they're all separately keyed
-    let ingredientCount = 20;
-    for (let i = ingredientCount; i > 0; i--) {
-      // Define Ingredients and Measurements
-      let ingredient = meal[`strIngredient${i}`];
-      let measurement = meal[`strMeasure${i}`];
+    let weather = data.current.condition.text;
+    let tempString = data.current.temp_f + `°F <span class="celsius">(${data.current.temp_c}°C)</span> 
+    <span class="feelsLike">Feels Like: ` + data.current.feelslike_f + `°F <span class="celsius">(${data.current.feelslike_c}°C)</span></span>`;
+    let lat = data.location.lat;
+    let lon = data.location.lon;
+    let city = data.location.name;
+    let state = data.location.region;
+    let locationString = city + ", " + state;
+    let country = data.location.country;
+    let iconURL = `https:${data.current.condition.icon}`;
 
-      //   Check for empty ingredients & measurements
-      if (ingredient != "") {
-        // console.log(ingredient);
-        // if (measurement != " " || measurement != null) {
-        //   measurement = "Measurement Missing";
-          
-        // }
-        recipeString += `<li>${ingredient} - <span class="measurement">${measurement}</span></li>`;
-      }
-    }
+    // Changing site Favicon
+    let favicon = document.getElementById("favicon");
+    favicon.href = iconURL;
 
-    $(".recipeHolder").html(recipeString);
-    reactionImg.classList.add("spin");
-    reactionImg.src = "assets/img/cooking.jpg";
-    reactionText.innerHTML = "Yum!";
+    let weatherHolder = document.querySelector(`.weatherHolder`);
+    
+    $(weatherHolder).html(`
+      <h4 class="latLon">(${lat} , ${lon})</h4>
+      <h2>${locationString}, <span>(${country})</span></h2>
+      <img class="icon" src="${iconURL}" alt="${weather} icon">
+      <h3>${weather}</h3>
+      <h3>${tempString}</h3>
+
+    `);
   });
 }
 
-export function getCategories() {
-  let catURL = `https://www.themealdb.com/api/json/v1/1/categories.php`;
+export function getForecast(location, days) {
+  let forecastURL = `https://api.weatherapi.com/v1/forecast.json?key=3f492440322745beb71150446251509&q=${location}&days=${days}&aqi=no&alerts=no
+`;
+  console.log("Grabbing Forecast Data");
 
-  $.getJSON(catURL, (data) => {
-    // console.log(data);
-    $.each(data.categories, (idx, cat) => {
-      $("#cat").append(
-        `<option value="${cat.strCategory}">${cat.strCategory}</option>`
-      );
+  $.getJSON(forecastURL, (data) => {
+    console.log(data);
+    let city = data.location.name;
+    let state = data.location.region;
+    let country = data.location.country;
+    let locationString = city + ", " + state;
+    let forecastDays = data.forecast.forecastday;
+
+        let weatherHolder = document.querySelector(`.weatherHolder`);
+    $(weatherHolder).html(`
+      <h2>${locationString}, <span>(${country})</span></h2>
+    `);
+
+    forecastDays.forEach((day) => {
+      let date = day.date;
+      let iconURL = `https:${day.day.condition.icon}`;
+      let condition = day.day.condition.text;
+      let maxTemp = day.day.maxtemp_f + `°F <span class="celsius">(${day.day.maxtemp_c}°C)</span>`;
+      let minTemp = day.day.mintemp_f + `°F <span class="celsius">(${day.day.mintemp_c}°C)</span>`;
+      let avgTemp = day.day.avgtemp_f + `°F <span class="celsius">(${day.day.avgtemp_c}°C)</span>`;
+      let maxWind = day.day.maxwind_mph + ` mph <span class="kph">(${day.day.maxwind_kph} kph)</span>`;
+      let totalPrecip = day.day.totalprecip_in + ` in <span class="mm">(${day.day.totalprecip_mm} mm)</span>`;
+      let avgHumidity = day.day.avghumidity + `%`;
+
+      $(weatherHolder).append(`
+        <div class="forecastDay">
+          <h3>${date}</h3>
+          <img class="icon" src="${iconURL}" alt="${condition} icon">
+          <h4>${condition}</h4>
+          <p><span class="label">Max Temp:</span> ${maxTemp}</p>
+          <p><span class="label">Min Temp:</span> ${minTemp}</p>
+          <p><span class="label">Avg Temp:</span> ${avgTemp}</p>
+          <p><span class="label">Max Wind:</span> ${maxWind}</p>
+          <p><span class="label">Total Precip:</span> ${totalPrecip}</p>
+          <p><span class="label">Avg Humidity:</span> ${avgHumidity}</p>
+        </div>
+      `);
     });
-  }).fail((error) => {
-    console.log("Error fetching categories:", error);
   });
-}
-
-export function getMealsByCategory(category) {
-    let mealsByCatURL = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`;
-    $.getJSON(mealsByCatURL, (data) => {
-        console.log(data);
-    }).fail((error) => {
-        console.log("Error fetching meals by category:", error);
-    });
 }
