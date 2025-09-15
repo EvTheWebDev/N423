@@ -1,0 +1,110 @@
+/* Basic Reset & Font Choice*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+html,
+body {
+  height: 100%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-bottom: 16px;
+}
+
+/* Spin Animation */
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.spin {
+  &:hover {
+    animation: spin 2s linear;
+  }
+}
+
+/* App Styling */
+#app {
+  padding: 25px;
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: space-between;
+    .filter {
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 15px;
+      font-size: 16px;
+      background-color: #c45c84;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-bottom: 20px;
+      &:hover {
+        background-color: #a03e61;
+      }
+    }
+  }
+
+  .recipeView {
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-evenly;
+    height: 400px;
+    margin: 0 auto;
+    padding: 20px;
+
+    .recipeHolder {
+      h3 {
+        margin-top: 10px;
+        margin-bottom: 5px;
+      }
+      li {
+        margin-left: 20px;
+        font-display: italic;
+      }
+      margin-left: 50px;
+      .recipeName {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+        margin-right: 20px;
+      }
+      .recipeImg {
+        width: 200px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-right: 20px;
+      }
+      .measurement {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .sideBar {
+    margin-left: 50px;
+    #reactionImg {
+      width: 200px;
+      margin-top: -15px;
+      border-radius: 20px;
+    }
+    #reactionText {
+      font-family: "Times New Roman", Times, serif;
+    }
+  }
+}

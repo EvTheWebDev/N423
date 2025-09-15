@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week02: Using API's</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="header">
+        <h1>My Meal Plans</h1>
+        <div class="buttonBar">
+          <button id="random-meal-btn">Get Random Meal</button>
+          <div class="filter">
+            <label for="cats">Choose a Category:</label>
+            <select name="Category" id="cat"></select>
+            <input type="submit" id="search">
+          </div>
+        </div>
+      </div>
+
+      <div class="recipeView">
+        <div class="sideBar">
+          <p id="reactionText">What're you cookin?</p>
+          <img id="reactionImg" src="assets/img/jeremy.webp" alt="Jeremy" />
+        </div>
+        <div class="recipeHolder"></div>
+      </div>
+    </div>
+    <script src="lib/jquery-3.7.1.min.js"></script>
+    <script type="module" src="model/model.js"></script>
+    <script type="module" src="app/app.js"></script>
+  </body>
+</html>
