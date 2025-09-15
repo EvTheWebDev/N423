@@ -1,0 +1,17 @@
+{
+  "name": "week03",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "scss": "sass scss/styles.scss css/styles.css --watch --no-source-map"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sass": "^1.92.1"
+  }
+}
