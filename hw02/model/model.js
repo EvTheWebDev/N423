@@ -48,9 +48,9 @@ export function getForecast(location, days) {
     let locationString = city + ", " + state;
     let forecastDays = data.forecast.forecastday;
 
-        let weatherHolder = document.querySelector(`.weatherHolder`);
-    $(weatherHolder).html(`
-      <h2>${locationString}, <span>(${country})</span></h2>
+    let forecastHolder = document.querySelector(`.forecastHolder`);
+    $(forecastHolder).html(`
+      <h2 class="forecastTitle">${days} day forecast for ${locationString}, <span>(${country})</span></h2>
     `);
 
     forecastDays.forEach((day) => {
@@ -64,7 +64,7 @@ export function getForecast(location, days) {
       let totalPrecip = day.day.totalprecip_in + ` in <span class="mm">(${day.day.totalprecip_mm} mm)</span>`;
       let avgHumidity = day.day.avghumidity + `%`;
 
-      $(weatherHolder).append(`
+      $(forecastHolder).append(`
         <div class="forecastDay">
           <h3>${date}</h3>
           <img class="icon" src="${iconURL}" alt="${condition} icon">

@@ -28,6 +28,67 @@
     }
 }
 
+.forecastHolder {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 20px 10px;
+    width: 90%;
+    margin: 0 auto;
+
+    .forecastTitle {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .forecastDay {
+        background-color: rgb(179, 213, 233);
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        border: 1px solid #e0e0e0;
+        transition: transform 0.2s, box-shadow 0.2s;
+        &:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+        }
+
+        h3 {
+            margin-bottom: 5px;
+        }
+
+        .icon {
+            width: 75px;
+        }
+
+        .condition {
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+
+        .temp {
+            font-size: large;
+            font-family: monospace;
+            margin-bottom: 5px;
+
+            .celsius {
+                font-size: small;
+            }
+        }
+
+        .precip, .humidity {
+            font-size: small;
+            margin-bottom: 3px;
+
+            .mm {
+                font-size: x-small;
+            }
+        }
+    }
+}
+
 .forecast {
     margin-top: 50px;
     display: flex;

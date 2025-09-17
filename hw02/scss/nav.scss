@@ -20,22 +20,17 @@
 
   .weatherOptions {
     display: flex;
-
+    justify-content: space-evenly;
+    flex-direction: row;
     .buttonBar {
       margin: 0 auto;
       max-width: 600px;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-evenly;
-      flex-direction: column;
 
-        .daySelector {
-          height: 30px;
-          font-size: 18px;
-          margin-bottom: 15px;
-          
-        }
-
+      .daySelector {
+        height: 30px;
+        font-size: 18px;
+        margin-bottom: 15px;
+      }
 
       .select {
         display: flex;
