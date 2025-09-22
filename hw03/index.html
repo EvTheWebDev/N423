@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework 03: Student Tracker</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="site">
+      <h1>Student Tracker</h1>
+      <h2>Add Students and Their Classes</h2>
+
+      <!-- Form -->
+      <div class="studentForm">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" placeholder="First Name" />
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" placeholder="Last Name" />
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Email" />
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phoneNumber" placeholder="Phone Number" />
+        <label for="classes">Classes:</label>
+        <input
+          type="text"
+          id="classes"
+          placeholder="Add classes separated by commas..."
+        />
+        <div class="buttonHolder">
+            <input
+          type="submit"
+          class="submitButton"
+          id="submit"
+          value="Add Name & Classes"
+        />
+        <button id="showStudents" class="showStudents">Print Students</button>
+      </div>
+        
+      </div>
+
+      
+      <div id="app" class="app"></div>
+    </div>
+
+    <script src="lib/jquery-3.7.1.min.js"></script>
+    <script src="app/app.js"></script>
+  </body>
+</html>

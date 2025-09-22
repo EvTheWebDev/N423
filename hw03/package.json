@@ -1,0 +1,17 @@
+{
+  "name": "hw03",
+  "version": "1.0.0",
+  "description": "homework assignment #3 for N423",
+  "main": "app/app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "scss": "sass scss/styles.scss css/styles.css --watch --no-source-map"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sass": "^1.93.0"
+  }
+}
