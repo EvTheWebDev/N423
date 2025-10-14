@@ -1,13 +1,74 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/public/assets/images/image.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <link rel="stylesheet" href="/src/css/styles.css" />
+    <title>Pickle?</title>
   </head>
+
   <body>
-    <div id="app"></div>
+    <div class="bg"></div>
+    <div id="app">
+      <div class="signUpIn">
+        <form class="form" id="signUpForm">
+          <label for="signUpEmail">Email:</label>
+          <input
+            type="email"
+            placeholder="Enter Username"
+            id="signUpEmail"
+            name="signUpEmail"
+            required
+          />
+          <br />
+          <label for="signUpPassword">Password:</label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            id="signUpPassword"
+            name="signUpPassword"
+            required
+          />
+          <button type="submit">Sign Up</button>
+        </form>
+        <form class="form" id="loginForm">
+          <label for="loginEmail">Email:</label>
+          <input
+            type="email"
+            placeholder="Enter Email"
+            id="loginEmail"
+            name="loginEmail"
+            required
+          />
+          <br />
+          <label for="loginPassword">Password:</label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            id="loginPassword"
+            name="loginPassword"
+            required
+          />
+          <button type="submit">Log In</button>
+        </form>
+      </div>
+      <button class="hidden logoutButton" id="logoutButton">Log Out</button>
+
+      <div class="content hidden" id="content">
+        <h1>Welcome to Pickle?</h1>
+        <h2>The best pickle jar simulator on the web!</h2>
+        <div class="guestbookForm">
+          <p>Sign Our Guest Book!</p>
+        <input class="nameInput" type="text" placeholder="Enter Name...">
+        <button class="addNameButton" type="submit">Add Your Name</button>
+        </div>
+        <div class="guestBook">
+
+        </div>
+      </div>
+    </div>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

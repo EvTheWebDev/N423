@@ -1,0 +1,283 @@
+@font-face {
+  font-family: "pickle";
+  src: url("/assets/fonts/freshPickle.ttf") format("truetype");
+}
+
+// === VARIABLES & MIXINS ===
+
+$font-stack: "pickle", Arial, Helvetica, sans-serif;
+$color-pickle-green: #557a46;
+$color-brine-yellow: #fff4c4;
+$color-dill-green: #9dc083;
+$color-dark-clove: #222831;
+$color-shadow: #425f37;
+$color-bg: rgba(81, 223, 81, 0.67);
+
+@mixin flex-center($direction: row) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $direction;
+}
+
+@mixin input-style {
+  background-color: $color-brine-yellow;
+  color: $color-dark-clove;
+  border: 2px solid $color-pickle-green;
+  border-radius: 8px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  margin-bottom: 15px;
+  width: 100%;
+  min-width: 200px;
+}
+
+@mixin button-style {
+  background-color: $color-pickle-green;
+  color: $color-brine-yellow;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "pickle";
+  font-size: 20px;
+  letter-spacing: 1.2px;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  box-shadow: 0 4px $color-shadow;
+  cursor: pointer;
+  margin: 5px 0 20px 0;
+  &:hover {
+    background-color: $color-dill-green;
+    box-shadow: 0 6px $color-shadow;
+    transform: translateY(-1px);
+  }
+  &:active {
+    background-color: $color-pickle-green;
+    box-shadow: 0 2px $color-shadow;
+    transform: translateY(1px);
+  }
+}
+
+// === BASE & RESET STYLES ===
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-stack;
+}
+
+// === HTML/BODY BACKGROUND ===
+html {
+  height: 100vh;
+  width: 100vw;
+  background-image: url("/assets/images/image.png");
+  background-color: $color-bg;
+  background-size: 100px 100px;
+  background-repeat: repeat;
+}
+
+// === TYPOGRAPHY ===
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-bottom: 16px;
+}
+
+// === APP CONTAINER ===
+#app {
+  font-family: $font-stack;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  max-width: 700px;
+  margin: 40px auto;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(85, 122, 70, 0.15);
+  padding: 40px 32px;
+  background-color: rgba(108, 203, 94, 0.85);
+
+  h1,
+  h2,
+  h3 {
+    color: $color-brine-yellow;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  p {
+    color: $color-dark-clove;
+    font-size: 1.1em;
+    text-align: center;
+  }
+
+  .logoutButton {
+    @include button-style;
+    background-color: $color-dill-green;
+    margin: 0 0 20px auto;
+    display: block;
+    width: fit-content;
+  }
+
+  .nameEntry {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 25px
+  }
+
+  .addNameButton {
+    @include button-style;
+    background-color: #27ae60;
+  }
+
+  .buttonHolder {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    .editButton {
+      @include button-style;
+      background-color: #f6a521;
+      margin: 0 10px 20px 0;
+      display: inline-block;
+      font-size: 10px;
+      padding: 8px 15px;
+      &:hover {
+        background-color: darken(#f39c12, 10%);
+        box-shadow: 0 2px $color-shadow;
+      }
+      &:active {
+        background-color: darken(#f39c12, 15%);
+        box-shadow: 0 0 $color-shadow;
+        transform: translateY(2px);
+      }
+    }
+    .deleteButton {
+      @include button-style;
+      background-color: #e74c3c;
+      margin: 0 0 20px auto;
+      display: block;
+      font-size: 10px;
+      padding: 8px 15px;
+      &:hover {
+        background-color: darken(#e74c3c, 10%);
+        box-shadow: 0 2px $color-shadow;
+      }
+      &:active {
+        background-color: darken(#e74c3c, 15%);
+        box-shadow: 0 0 $color-shadow;
+        transform: translateY(2px);
+      }
+    }
+  }
+
+  .guestbookForm {
+    @include flex-center(column);
+    font-weight: bold;
+
+    label {
+      color: $color-dark-clove;
+      font-weight: bold;
+      display: block;
+      font-size: 1.1em;
+      margin-bottom: -2px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    textarea,
+    select {
+      @include input-style;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: $color-dill-green;
+      outline: none;
+      box-shadow: 0 0 5px rgba($color-dill-green, 0.8);
+    }
+
+    ::placeholder {
+      color: rgba($color-dark-clove, 0.5);
+    }
+
+    button,
+    input[type="submit"] {
+      @include button-style;
+    }
+  }
+  .guestBook {
+    margin-top: 20px;
+    width: 100%;
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid $color-pickle-green;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: lighten($color-bg, 30%);
+
+    div {
+      padding: 5px 0;
+      border-bottom: 1px solid rgba($color-pickle-green, 0.3);
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    input {
+      @include input-style;
+      width: 50%;
+    }
+    input:disabled,
+    textarea:disabled,
+    select:disabled {
+      background: none;
+      color: $color-dark-clove;
+      border: none;
+      box-shadow: none;
+      padding: 0;
+      font-size: inherit;
+      font-weight: inherit;
+      cursor: default;
+    }
+  }
+
+  .signUpIn {
+    font-size: 14px;
+    text-align: center;
+    color: $color-dark-clove;
+    font-family: $font-stack;
+    width: 500px;
+    margin: 100px auto 0 auto;
+    padding: 50px;
+    border-radius: 20px;
+    height: fit-content;
+    input {
+      @include input-style;
+    }
+    button {
+      @include button-style;
+      width: 50%;
+    }
+    label {
+      font-weight: bold;
+      font-size: 20px;
+      color: $color-dark-clove;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  }
+}
+
+.hidden {
+  display: none !important;
+}

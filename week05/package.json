@@ -7,11 +7,13 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "firebase deploy"
+    "deploy": "firebase deploy",
+    "sass": "sass -w src/scss:src/css --no-source-map"
+
   },
   "devDependencies": {
-    "vite": "^7.1.7",
-    "sass": "^1.93.0"
+    "sass": "^1.93.2",
+    "vite": "^7.1.7"
   },
   "dependencies": {
     "firebase": "^12.3.0"

@@ -1,0 +1,386 @@
+@font-face {
+  font-family: "pickle";
+  src: url("/assets/fonts/freshPickle.ttf") format("truetype");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "pickle", Arial, Helvetica, sans-serif;
+}
+
+html {
+  height: 100vh;
+  width: 100vw;
+  background-image: url("/assets/images/image.png");
+  background-color: rgba(81, 223, 81, 0.67);
+  background-size: 100px 100px;
+  background-repeat: repeat;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-bottom: 16px;
+}
+
+#app {
+  font-family: "pickle", Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  max-width: 700px;
+  margin: 40px auto;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(85, 122, 70, 0.15);
+  padding: 40px 32px;
+  background-color: rgba(108, 203, 94, 0.85);
+}
+#app h1,
+#app h2,
+#app h3 {
+  color: #fff4c4;
+  text-align: center;
+  margin-bottom: 24px;
+}
+#app p {
+  color: #222831;
+  font-size: 1.1em;
+  text-align: center;
+}
+#app .logoutButton {
+  background-color: #557a46;
+  color: #fff4c4;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "pickle";
+  font-size: 20px;
+  letter-spacing: 1.2px;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  box-shadow: 0 4px #425f37;
+  cursor: pointer;
+  margin: 5px 0 20px 0;
+}
+#app .logoutButton:hover {
+  background-color: #9dc083;
+  box-shadow: 0 6px #425f37;
+  transform: translateY(-1px);
+}
+#app .logoutButton:active {
+  background-color: #557a46;
+  box-shadow: 0 2px #425f37;
+  transform: translateY(1px);
+}
+#app .logoutButton {
+  background-color: #9dc083;
+  margin: 0 0 20px auto;
+  display: block;
+  width: fit-content;
+}
+#app .nameEntry {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 25px;
+}
+#app .addNameButton {
+  background-color: #557a46;
+  color: #fff4c4;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "pickle";
+  font-size: 20px;
+  letter-spacing: 1.2px;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  box-shadow: 0 4px #425f37;
+  cursor: pointer;
+  margin: 5px 0 20px 0;
+}
+#app .addNameButton:hover {
+  background-color: #9dc083;
+  box-shadow: 0 6px #425f37;
+  transform: translateY(-1px);
+}
+#app .addNameButton:active {
+  background-color: #557a46;
+  box-shadow: 0 2px #425f37;
+  transform: translateY(1px);
+}
+#app .addNameButton {
+  background-color: #27ae60;
+}
+#app .buttonHolder {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+#app .buttonHolder .editButton {
+  background-color: #557a46;
+  color: #fff4c4;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "pickle";
+  font-size: 20px;
+  letter-spacing: 1.2px;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  box-shadow: 0 4px #425f37;
+  cursor: pointer;
+  margin: 5px 0 20px 0;
+}
+#app .buttonHolder .editButton:hover {
+  background-color: #9dc083;
+  box-shadow: 0 6px #425f37;
+  transform: translateY(-1px);
+}
+#app .buttonHolder .editButton:active {
+  background-color: #557a46;
+  box-shadow: 0 2px #425f37;
+  transform: translateY(1px);
+}
+#app .buttonHolder .editButton {
+  background-color: #f6a521;
+  margin: 0 10px 20px 0;
+  display: inline-block;
+  font-size: 10px;
+  padding: 8px 15px;
+}
+#app .buttonHolder .editButton:hover {
+  background-color: rgb(199.8795180723, 126.5060240964, 10.1204819277);
+  box-shadow: 0 2px #425f37;
+}
+#app .buttonHolder .editButton:active {
+  background-color: rgb(175.6084337349, 111.1445783133, 8.8915662651);
+  box-shadow: 0 0 #425f37;
+  transform: translateY(2px);
+}
+#app .buttonHolder .deleteButton {
+  background-color: #557a46;
+  color: #fff4c4;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "pickle";
+  font-size: 20px;
+  letter-spacing: 1.2px;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  box-shadow: 0 4px #425f37;
+  cursor: pointer;
+  margin: 5px 0 20px 0;
+}
+#app .buttonHolder .deleteButton:hover {
+  background-color: #9dc083;
+  box-shadow: 0 6px #425f37;
+  transform: translateY(-1px);
+}
+#app .buttonHolder .deleteButton:active {
+  background-color: #557a46;
+  box-shadow: 0 2px #425f37;
+  transform: translateY(1px);
+}
+#app .buttonHolder .deleteButton {
+  background-color: #e74c3c;
+  margin: 0 0 20px auto;
+  display: block;
+  font-size: 10px;
+  padding: 8px 15px;
+}
+#app .buttonHolder .deleteButton:hover {
+  background-color: rgb(213.698630137, 43.8356164384, 26.301369863);
+  box-shadow: 0 2px #425f37;
+}
+#app .buttonHolder .deleteButton:active {
+  background-color: rgb(190.9931506849, 39.1780821918, 23.5068493151);
+  box-shadow: 0 0 #425f37;
+  transform: translateY(2px);
+}
+#app .guestbookForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-weight: bold;
+}
+#app .guestbookForm label {
+  color: #222831;
+  font-weight: bold;
+  display: block;
+  font-size: 1.1em;
+  margin-bottom: -2px;
+}
+#app .guestbookForm input[type=text],
+#app .guestbookForm input[type=email],
+#app .guestbookForm input[type=password],
+#app .guestbookForm textarea,
+#app .guestbookForm select {
+  background-color: #fff4c4;
+  color: #222831;
+  border: 2px solid #557a46;
+  border-radius: 8px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  margin-bottom: 15px;
+  width: 100%;
+  min-width: 200px;
+}
+#app .guestbookForm input:focus,
+#app .guestbookForm textarea:focus,
+#app .guestbookForm select:focus {
+  border-color: #9dc083;
+  outline: none;
+  box-shadow: 0 0 5px rgba(157, 192, 131, 0.8);
+}
+#app .guestbookForm ::placeholder {
+  color: rgba(34, 40, 49, 0.5);
+}
+#app .guestbookForm button,
+#app .guestbookForm input[type=submit] {
+  background-color: #557a46;
+  color: #fff4c4;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "pickle";
+  font-size: 20px;
+  letter-spacing: 1.2px;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  box-shadow: 0 4px #425f37;
+  cursor: pointer;
+  margin: 5px 0 20px 0;
+}
+#app .guestbookForm button:hover,
+#app .guestbookForm input[type=submit]:hover {
+  background-color: #9dc083;
+  box-shadow: 0 6px #425f37;
+  transform: translateY(-1px);
+}
+#app .guestbookForm button:active,
+#app .guestbookForm input[type=submit]:active {
+  background-color: #557a46;
+  box-shadow: 0 2px #425f37;
+  transform: translateY(1px);
+}
+#app .guestBook {
+  margin-top: 20px;
+  width: 100%;
+  max-height: 400px;
+  overflow-y: auto;
+  border: 1px solid #557a46;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: rgba(210.2330097087, 246.7669902913, 210.2330097087, 0.67);
+}
+#app .guestBook div {
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(85, 122, 70, 0.3);
+}
+#app .guestBook div:last-child {
+  border-bottom: none;
+}
+#app .guestBook input {
+  background-color: #fff4c4;
+  color: #222831;
+  border: 2px solid #557a46;
+  border-radius: 8px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  margin-bottom: 15px;
+  width: 100%;
+  min-width: 200px;
+  width: 50%;
+}
+#app .guestBook input:disabled,
+#app .guestBook textarea:disabled,
+#app .guestBook select:disabled {
+  background: none;
+  color: #222831;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  cursor: default;
+}
+#app .signUpIn {
+  font-size: 14px;
+  text-align: center;
+  color: #222831;
+  font-family: "pickle", Arial, Helvetica, sans-serif;
+  width: 500px;
+  margin: 100px auto 0 auto;
+  padding: 50px;
+  border-radius: 20px;
+  height: fit-content;
+}
+#app .signUpIn input {
+  background-color: #fff4c4;
+  color: #222831;
+  border: 2px solid #557a46;
+  border-radius: 8px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  margin-bottom: 15px;
+  width: 100%;
+  min-width: 200px;
+}
+#app .signUpIn button {
+  background-color: #557a46;
+  color: #fff4c4;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "pickle";
+  font-size: 20px;
+  letter-spacing: 1.2px;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  box-shadow: 0 4px #425f37;
+  cursor: pointer;
+  margin: 5px 0 20px 0;
+}
+#app .signUpIn button:hover {
+  background-color: #9dc083;
+  box-shadow: 0 6px #425f37;
+  transform: translateY(-1px);
+}
+#app .signUpIn button:active {
+  background-color: #557a46;
+  box-shadow: 0 2px #425f37;
+  transform: translateY(1px);
+}
+#app .signUpIn button {
+  width: 50%;
+}
+#app .signUpIn label {
+  font-weight: bold;
+  font-size: 20px;
+  color: #222831;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.hidden {
+  display: none !important;
+}
