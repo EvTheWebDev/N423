@@ -1,0 +1,49 @@
+/* Retro Navigation Styles */
+.retro-nav {
+    background: linear-gradient(to right, #ff6b6b, #4ecdc4);
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.retro-nav .logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 0px #000, 4px 4px 0px rgba(0, 0, 0, 0.2);
+    letter-spacing: 3px;
+}
+
+.retro-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.retro-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.retro-nav ul li a:hover {
+    border-color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    text-shadow: 0 0 5px #fff;
+}
+
+/* Reset default styles */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
